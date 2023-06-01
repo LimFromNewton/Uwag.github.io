@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do You Like Me?</title>
+  <style>
+    body {
+	  background-color: pink;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    
+    #yes-button,
+    #no-button {
+      font-size: 24px;
+      padding: 10px 20px;
+    }
+    
+    #no-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    #no-button.teleport {
+      position: absolute;
+      top: 20%;
+      left: 80%;
+    }
+    
+    #thank-you-message {
+      display: none;
+      font-size: 36px; /* Adjust the font size as desired */
+      margin-top: 20px;
+      animation: colorChange 5s infinite alternate;
+    }
+    
+    @keyframes colorChange {
+      0% { color: red; }
+      25% { color: blue; }
+      50% { color: green; }
+      75% { color: purple; }
+      100% { color: orange; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Do You Like Me?</h1>
+  <button id="yes-button">Yes</button>
+  <button id="no-button">No</button>
+  <p id="thank-you-message">😊WOW THANK YOU😊</p>
+
+  <script>
+    var yesButton = document.getElementById("yes-button");
+    var noButton = document.getElementById("no-button");
+    var thankYouMessage = document.getElementById("thank-you-message");
+
+    yesButton.addEventListener("click", function() {
+      thankYouMessage.style.display = "block";
+      yesButton.style.display = "none";
+      noButton.style.display = "none";
+    });
+
+    noButton.addEventListener("click", function() {
+      noButton.classList.toggle("teleport");
+    });
+  </script>
+</body>
+</html>
